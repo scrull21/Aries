@@ -45,6 +45,9 @@ INSTALLED_APPS = [
 
     #apps
     'apps.settings',
+    'apps.categories',
+    'apps.news', 
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +139,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'users.User'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_BASEPATH = "/assets/ckeditor/ckeditor/"
