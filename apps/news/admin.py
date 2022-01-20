@@ -13,3 +13,5 @@ class NewsAdmin(admin.ModelAdmin):
 
 admin.site.register(models.News, NewsAdmin)
 admin.site.register(models.Tags)
+admin.site.register(models.NewsLike)
+admin.site.register(models.NewsComment)

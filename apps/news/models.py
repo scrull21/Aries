@@ -1,11 +1,12 @@
 from tabnanny import verbose
 from django.db import models
 from apps.categories.models import Category
+from apps.users.models import User
 
 # Create your models here.
 class Tags(models.Model):
     title = models.CharField(max_length=100, unique=True)
-    created = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -20,7 +21,7 @@ class News(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     tags = models.ForeignKey(Tags, on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title, self.category
@@ -33,3 +34,28 @@ class News(models.Model):
 class NewsImage(models.Model):
     news = models.ForeignKey(News, on_delete=models.CASCADE)
     image = models.ImageField(upload_to = 'news_images/')
+
+class NewsLike(models.Model):
+    news_liked = models.ForeignKey(News, on_delete=models.CASCADE, related_name="news_liked")
+    liked_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liked_user")
+
+    def __str__(self):
+        return self.news_liked
+
+    class Meta:
+        verbose_name = "Лайк новостя"
+        verbose_name_plural = "Лайкл новостей"
+        ordering = ('-news_liked', )
+
+class NewsComment(models.Model):
+    news_comment = models.ForeignKey(News, on_delete=models.CASCADE)
+    comment_title = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title 
+
+    class Meta:
+        verbose_name = "Комент новостя"
+        verbose_name_plural = "Коменты новостей"
+        ordering = ('-created', )
