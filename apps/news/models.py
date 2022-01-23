@@ -5,6 +5,7 @@ from apps.users.models import User
 
 # Create your models here.
 class Tags(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, unique=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -17,14 +18,15 @@ class Tags(models.Model):
         ordering = ('-created', )
 
 class News(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_post')
     title = models.CharField(max_length=100)
     description = models.TextField()
-    tags = models.ForeignKey(Tags, on_delete=models.CASCADE)
+    tags = models.ForeignKey(Tags, on_delete=models.CASCADE, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title, self.category
+        return f"{self.title}, {self.category}"
 
     class Meta:
         verbose_name = "Новость"
@@ -32,7 +34,7 @@ class News(models.Model):
         ordering = ('-created', )
 
 class NewsImage(models.Model):
-    news = models.ForeignKey(News, on_delete=models.CASCADE)
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name = 'post_image')
     image = models.ImageField(upload_to = 'news_images/')
 
 class NewsLike(models.Model):
