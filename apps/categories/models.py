@@ -2,6 +2,7 @@ from django.db import models
 from apps.users.models import User
 from django.db.models.signals import pre_save
 from utils.slug_generator import unique_slug_generators
+from django.urls import reverse
 
 
 # Create your models here.
@@ -14,6 +15,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("category_detail", kwargs={"slug": self.slug})
     
     class Meta:
         verbose_name = "Категория"

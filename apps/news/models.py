@@ -50,12 +50,12 @@ class NewsLike(models.Model):
         ordering = ('-news_liked', )
 
 class NewsComment(models.Model):
-    news_comment = models.ForeignKey(News, on_delete=models.CASCADE)
+    news_comment = models.ForeignKey(News, on_delete=models.CASCADE, related_name='news_comment')
     comment_title = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title 
+        return self.comment_title 
 
     class Meta:
         verbose_name = "Комент новостя"

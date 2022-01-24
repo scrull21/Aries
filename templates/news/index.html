@@ -24,7 +24,7 @@
                                     <a class="post-category-marker" href="category.html">{{ post.category }}</a>
                                     <div class="clearfix"></div>
                                     <h2><a href="post-single.html">{{ post.title }}</a></h2>
-                                    <h4>{{ post.description }}</h4>
+                                    <h4>{{ post.description | truncatewords:50 }}</h4>
                                     <div class="clearfix"></div>
                                     <div class="author-link"><a href="author-single.html"><img src="{{ user.profile_image.url }}" alt="">  <span>{{ post.user }}</span></a></div>
                                     <span class="post-date"><i class="far fa-clock"></i>{{ post.created }}</span>

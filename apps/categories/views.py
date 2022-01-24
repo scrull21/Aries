@@ -11,3 +11,10 @@ def category_index(request):
         'news' : news,
     }
     return render(request, 'categories/index.html', context)
+
+def category_detail(request, slug):
+    news = News.objects.get(slug = slug)
+    context = { 
+        'category' : news,
+    }
+    return render(request, 'categories/detail.html', context)
