@@ -3,12 +3,13 @@ from apps.news.models import News
 from django.db.models import F
 
 # Create your views here.
-def index(request):
-    news = News.objects.all()
+def navbar_news(request):
+    navbar = News.objects.all().order_by('-created',)[:5]
     context = {
-        'news' : news 
+        'navbar' : navbar
     }
-    return render(request, 'news/index.html', context)
+    return render(request, 'include/navbar.html', context)
+
 
 def news_detail(request, id):
     news = News.objects.get(id=id)

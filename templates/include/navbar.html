@@ -13,10 +13,9 @@
                 <div class="hnt_title">Hot News :</div>
                 <div class="header_news-ticker fl-wrap">
                     <ul>
-                        <li><a href="post-single.html">They chose to leave rather than put up with a governor who follows science .</a></li>
-                        <li><a href="post-single.html">Hold On to Your Travel Dreams in the World.</a></li>
-                        <li><a href="post-single.html">White  endorses bill that would ensure abortion access.</a></li>
-                        <li><a href="post-single.html">NFL Power Rankings 2021: How all 32 teams stack up after Week 2.</a></li>
+                        {% for news in navbar %}
+                        <li><a href="post-single.html">Hey {{ news.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="n_contr-wrap">
@@ -37,7 +36,11 @@
     <div class="header-inner fl-wrap">
         <div class="container">
             <!-- logo holder  -->
-            <a href="index.html" class="logo-holder"><img src="{% static 'images/logo.png' %}" alt=""></a>
+            {% if settings.logo %}
+            <a href="{% url 'index' %}" class="logo-holder"><img src="{{ settings.logo.url }}" alt=""></a>
+            {% else %}
+            <a href="{% url 'index' %}" class="logo-holder"><img src="{% static 'images/logo.png' %}" alt=""></a>
+            {% endif %}
             <!-- logo holder end -->
             <div class="search_btn htact show_search-btn"><i class="far fa-search"></i> <span class="header-tooltip">Search</span></div>
             <div class="srf_btn htact show-reg-form"><i class="fal fa-user"></i> <span class="header-tooltip">Sign In</span></div>
