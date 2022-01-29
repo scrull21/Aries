@@ -142,66 +142,25 @@
                                 <h2>Top Stories</h2>
                                 <h4>Don't miss daily news</h4>
                             </div>
-                            <div class="grid-post-wrap">
-                                <div class="more-post-wrap  fl-wrap">
-                                    <div class="list-post-wrap list-post-wrap_column fl-wrap">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <!--list-post-->	
-                                                <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Science</a>
-                                                    <div class="list-post-media">
-                                                        <a href="post-single.html">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/16.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                                    </div>
-                                                    <div class="list-post-content">
-                                                        <h3><a href="post-single.html">How to start Home renovation.</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i>  05 April 2022</span>
-                                                    </div>
-                                                </div>
-                                                <!--list-post end-->						  
-                                            </div>
-                                            <div class="col-md-6">
-                                                <!--list-post-->	
-                                                <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Sports</a>
-                                                    <div class="list-post-media">
-                                                        <a href="post-single.html">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/24.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                                    </div>
-                                                    <div class="list-post-content">
-                                                        <h3><a href="post-single.html">Warriors face season defining clash</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i> 11 March 2022</span>
-                                                    </div>
-                                                </div>
-                                                <!--list-post end-->						  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                           
                                 <!--grid-post-item-->
                                 <div class="single-grid-slider-wrap fl-wrap">
                                     <div class="single-grid-slider">
                                         <div class="swiper-container">
                                             <div class="swiper-wrapper">
                                                 <!-- swiper-slide-->  
+                                                {% for post in news_slide %}
                                                 <div class="swiper-slide">
                                                     <div class="grid-post-item  bold_gpi  fl-wrap">
                                                         <div class="grid-post-media gpm_sing">
-                                                            <div class="bg" data-bg="images/all/31.jpg"></div>
-                                                            <div class="author-link"><a href="author-single.html"><img src="{% static 'images/avatar/2.jpg' %}" alt="">  <span>By Mark Rose</span></a></div>
+                                                            {% for image in post.post_image.all %}
+                                                            <div class="bg" data-bg="{{ image.image.url }}"></div>
+                                                            {% endfor %}
+                                                            <div class="author-link"><a href="author-single.html"><img src="{% static 'images/avatar/2.jpg' %}" alt="">  <span>BY {{ post.user }}</span></a></div>
                                                             <div class="grid-post-media_title">
-                                                                <a class="post-category-marker" href="category.html">Technology</a>
-                                                                <h4><a href="post-single.html">Videos show SpaceX's Dragon capsule as it returns to Earth</a></h4>
-                                                                <span class="video-date"><i class="far fa-clock"></i> 13 april 2021</span>
+                                                                <a class="post-category-marker" href="category.html">{{ post.category }}</a>
+                                                                <h4><a href="post-single.html">{{ post.title }}</a></h4>
+                                                                <span class="video-date"><i class="far fa-clock"></i> {{ post.created }}</span>
                                                                 <ul class="post-opt">
                                                                     <li><i class="far fa-comments-alt"></i>  25 </li>
                                                                     <li><i class="fal fa-eye"></i>  164 </li>
@@ -210,45 +169,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- swiper-slide end-->
-                                                <!-- swiper-slide-->  
-                                                <div class="swiper-slide">
-                                                    <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                        <div class="grid-post-media gpm_sing">
-                                                            <div class="bg" data-bg="images/all/40.jpg"></div>
-                                                            <div class="author-link"><a href="author-single.html"><img src="{% static 'images/avatar/3.jpg' %}" alt="">  <span>Ann Kowalsky</span></a></div>
-                                                            <div class="grid-post-media_title">
-                                                                <a class="post-category-marker" href="category.html">Business</a>
-                                                                <h4><a href="post-single.html">Scientific research goes to the next level</a></h4>
-                                                                <span class="video-date"><i class="far fa-clock"></i> 30 september 2021</span>
-                                                                <ul class="post-opt">
-                                                                    <li><i class="far fa-comments-alt"></i>  25 </li>
-                                                                    <li><i class="fal fa-eye"></i>  164 </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                {% endfor %}
                                                 <!-- swiper-slide end-->									
-                                                <!-- swiper-slide-->  
-                                                <div class="swiper-slide">
-                                                    <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                        <div class="grid-post-media gpm_sing">
-                                                            <div class="bg" data-bg="images/all/36.jpg"></div>
-                                                            <div class="author-link"><a href="author-single.html"><img src="{% static 'images/avatar/1.jpg' %}" alt="">  <span>By Jane Taylor</span></a></div>
-                                                            <div class="grid-post-media_title">
-                                                                <a class="post-category-marker" href="category.html">Technology</a>
-                                                                <h4><a href="post-single.html">Climate change: What do scientists want this week?</a></h4>
-                                                                <span class="video-date"><i class="far fa-clock"></i> 05 december 2021</span>
-                                                                <ul class="post-opt">
-                                                                    <li><i class="far fa-comments-alt"></i>  25 </li>
-                                                                    <li><i class="fal fa-eye"></i>  164 </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- swiper-slide end-->										
                                             </div>
                                             <div class="sgs-pagination sgs_ver "></div>
                                         </div>
@@ -258,82 +180,30 @@
                                 <div class="more-post-wrap  fl-wrap">
                                     <div class="list-post-wrap list-post-wrap_column fl-wrap">
                                         <div class="row">
+                                            {% for post in news %}
                                             <div class="col-md-6">
                                                 <!--list-post-->	
                                                 <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Sports</a>
+                                                    <a class="post-category-marker" href="category.html">{{ post.category }}</a>
                                                     <div class="list-post-media">
                                                         <a href="post-single.html">
                                                             <div class="bg-wrap">
-                                                                <div class="bg" data-bg="{% static 'images/all/37.jpg' %}"></div>
+                                                                {% for image in post.post_image.all %}
+                                                                <div class="bg" data-bg="{{ image.image.url }}"></div>
+                                                                {% endfor %}
                                                             </div>
                                                         </a>
                                                         <span class="post-media_title">&copy; Image Copyrights Title</span>
                                                     </div>
                                                     <div class="list-post-content">
-                                                        <h3><a href="post-single.html">Female Hawks win $10,000 funding boost</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i>  05 April 2022</span>
+                                                        <h3><a href="post-single.html">{{ post.title }}</a></h3>
+                                                        <span class="post-date"><i class="far fa-clock"></i>{{ post.created }}</span>
                                                     </div>
                                                 </div>
-                                                <!--list-post end-->						  
+                                                <!--list-post end-->	
                                             </div>
-                                            <div class="col-md-6">
-                                                <!--list-post-->	
-                                                <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Technology</a>
-                                                    <div class="list-post-media">
-                                                        <a href="post-single.html">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/39.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                                    </div>
-                                                    <div class="list-post-content">
-                                                        <h3><a href="post-single.html">Cape Town's Day Zero: We are axing trees to save water</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i> 11 March 2022</span>
-                                                    </div>
-                                                </div>
-                                                <!--list-post end-->						  
-                                            </div>
-                                            <div class="col-md-6">
-                                                <!--list-post-->	
-                                                <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Science</a>
-                                                    <div class="list-post-media">
-                                                        <a href="post-single.html">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/18.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                                    </div>
-                                                    <div class="list-post-content">
-                                                        <h3><a href="post-single.html">High wind delays SpaceX crew homecoming after 6 months aloft</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i> 11 March 2022</span>
-                                                    </div>
-                                                </div>
-                                                <!--list-post end-->						  
-                                            </div>
-                                            <div class="col-md-6">
-                                                <!--list-post-->	
-                                                <div class="list-post fl-wrap">
-                                                    <a class="post-category-marker" href="category.html">Politics</a>
-                                                    <div class="list-post-media">
-                                                        <a href="post-single.html">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/7.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                                    </div>
-                                                    <div class="list-post-content">
-                                                        <h3><a href="post-single.html">What the federal infrastructure package means for Minnesota</a></h3>
-                                                        <span class="post-date"><i class="far fa-clock"></i> 11 March 2022</span>
-                                                    </div>
-                                                </div>
-                                                <!--list-post end-->						  
-                                            </div>
+                                            
+                                            {% endfor %}					  
                                         </div>
                                     </div>
                                 </div>
