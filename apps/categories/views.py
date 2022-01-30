@@ -18,3 +18,4 @@ def category_detail(request, slug):
         'category' : news,
     }
     return render(request, 'categories/detail.html', context)
+

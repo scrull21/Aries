@@ -24,6 +24,8 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
         ordering = ('-title', )
 
+    
+
 def slag_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generators(instance)

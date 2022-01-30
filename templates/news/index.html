@@ -21,12 +21,12 @@
                             </div>
                             <div class="hero-item fl-wrap">
                                 <div class="container">
-                                    <a class="post-category-marker" href="category.html">{{ post.category }}</a>
+                                    <a class="post-category-marker" href="">{{ post.category }}</a>
                                     <div class="clearfix"></div>
-                                    <h2><a href="">{{ post.title }}</a></h2>
-                                    <h4>{{ post.description | truncatewords:50 }}</h4>
+                                    <h2><a href="{% url 'detail_news' post.id %}">{{ post.title }}</a></h2>
+                                    <a href = "{% url 'detail_news' post.id %}"><h4>{{ post.description | truncatewords:50 }}</h4></a>
                                     <div class="clearfix"></div>
-                                    <div class="author-link"><a href="author-single.html"><img src="{{ user.profile_image.url }}" alt="">  <span>{{ post.user }}</span></a></div>
+                                    <div class="author-link"><a href="{% url 'detail_news' post.id %}"><img src="{{ user.profile_image.url }}" alt="">  <span>{{ post.user }}</span></a></div>
                                     <span class="post-date"><i class="far fa-clock"></i>{{ post.created }}</span>
                                 </div>
                             </div>
@@ -154,15 +154,15 @@
                                                     <div class="grid-post-item  bold_gpi  fl-wrap">
                                                         <div class="grid-post-media gpm_sing">
                                                             {% for image in post.post_image.all %}
-                                                            <div class="bg" data-bg="{{ image.image.url }}"></div>
+                                                            <div class="bg" href = "{% url 'detail_news' post.id %}" data-bg="{{ image.image.url }}"></div>
                                                             {% endfor %}
                                                             <div class="author-link"><a href="author-single.html"><img src="{% static 'images/avatar/2.jpg' %}" alt="">  <span>BY {{ post.user }}</span></a></div>
                                                             <div class="grid-post-media_title">
                                                                 <a class="post-category-marker" href="category.html">{{ post.category }}</a>
-                                                                <h4><a href="post-single.html">{{ post.title }}</a></h4>
+                                                                <h4><a href="{% url 'detail_news' post.id %}">{{ post.title }}</a></h4>
                                                                 <span class="video-date"><i class="far fa-clock"></i> {{ post.created }}</span>
                                                                 <ul class="post-opt">
-                                                                    <li><i class="far fa-comments-alt"></i>  25 </li>
+                                                                    <li><i class="far fa-comments-alt"></i>  {{ post.news_comment.all.count }} </li>
                                                                     <li><i class="fal fa-eye"></i>  164 </li>
                                                                 </ul>
                                                             </div>
@@ -186,7 +186,7 @@
                                                 <div class="list-post fl-wrap">
                                                     <a class="post-category-marker" href="category.html">{{ post.category }}</a>
                                                     <div class="list-post-media">
-                                                        <a href="post-single.html">
+                                                        <a href="{% url 'detail_news' post.id %}">
                                                             <div class="bg-wrap">
                                                                 {% for image in post.post_image.all %}
                                                                 <div class="bg" data-bg="{{ image.image.url }}"></div>
@@ -196,7 +196,7 @@
                                                         <span class="post-media_title">&copy; Image Copyrights Title</span>
                                                     </div>
                                                     <div class="list-post-content">
-                                                        <h3><a href="post-single.html">{{ post.title }}</a></h3>
+                                                        <h3><a href="{% url 'detail_news' post.id %}">{{ post.title }}</a></h3>
                                                         <span class="post-date"><i class="far fa-clock"></i>{{ post.created }}</span>
                                                     </div>
                                                 </div>
