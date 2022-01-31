@@ -17,7 +17,7 @@
                         <div class="author-link"><a href="author-single.html"><img src="{{ user.profile_image.url }}" alt="">  <span>{{ news.user }}</span></a></div>
                         <span class="post-date"><i class="far fa-clock"></i> {{ news.created }}</span>
                         <ul class="post-opt">
-                            <li><i class="far fa-comments-alt"></i> 4 </li>
+                            <li><i class="far fa-comments-alt"></i> {{ news.news_comment.all.count }} </li>
                             <li><i class="fal fa-eye"></i>  980 </li>
                         </ul>
                     </div>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="fs-wrap smpar fl-wrap">
-                            <div class="fontSize"><span class="fs_title">Font size: </span><input type="text" class="rage-slider" data-step="1" data-min="12" data-max="15" value="12"></div>
+                            <div class="fontSize"><span class="fs_title">Font size: </span><input type="text" class="rage-slider" data-step="1" data-min="12" data-max="15" value="14"></div>
                             <div class="show-more-snopt smact"><i class="fal fa-ellipsis-v"></i></div>
                             <div class="show-more-snopt-tooltip">
                                 <a href="#comments" class="custom-scroll-link"> <i class="fas fa-comment-alt"></i> Write a Comment</a>
@@ -68,33 +68,13 @@
                         <div class="clearfix"></div>
                         <div class="single-post-content_text" id="font_chage">
                             <p class="has-drop-cap"></p>
-                            <h4 class="mb_head">Middle Post Heading</h4>
-                            <p>Lorem ipsum dosectetur adipisicing elit, seLorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempord do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
-                            <div class="single-post-content_text_media fl-wrap">
-                                <div class="row">
-                                    <div class="col-md-6"><img src="{% static 'images/all/21.jpg' %}" alt="" class="respimg"></div>
-                                    <div class="col-md-6">
-                                        <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. </p>
-                                        <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. </p>
-                            <h4 class="mb_head">Middle Post Heading</h4>
-                            <div class="single-post-content_text_media fl-wrap">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="has-drop-cap">  Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus.  faucibus.Cras lacinia magna vel molestie faucibus.   </p>
-                                    </div>
-                                    <div class="col-md-6"><img src="{% static 'images/all/18.jpg' %}" alt="" class="respimg"></div>
-                                </div>
-                            </div>
-                            <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. </p>
-                            <blockquote>
-                                <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. </p>
-                            </blockquote>
-                            <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
-                            <p>  Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor.</p>
+                            <h4 class="mb_head">{{ news.title }}</h4>
+                            <p>{{ news.description }}</p>
+                            {% for image in news.post_image.all  %}
+                            {% if forloop.counter == 2  %}
+                            <div class="col-md-10"><img src="{{ image.image.url }}" alt="" class="respimg"></div>
+                            {% endif %}
+                            {% endfor %}
                         </div>
                         <div class="single-post-footer fl-wrap">
                             <div class="post-single-tags">
