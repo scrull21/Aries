@@ -18,7 +18,7 @@
                         <span class="post-date"><i class="far fa-clock"></i> {{ news.created }}</span>
                         <ul class="post-opt">
                             <li><i class="far fa-comments-alt"></i> {{ news.news_comment.all.count }} </li>
-                            <li><i class="fal fa-eye"></i>  980 </li>
+                            <li><i class="fal fa-eye"></i>  10 </li>
                         </ul>
                     </div>
                     <!-- single-post-header end   -->
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="fs-wrap smpar fl-wrap">
-                            <div class="fontSize"><span class="fs_title">Font size: </span><input type="text" class="rage-slider" data-step="1" data-min="12" data-max="15" value="14"></div>
+                            <div class="fontSize"><span class="fs_title">Font size: </span><input type="text" class="rage-slider" data-step="1" data-min="12" data-max="15" value="15"></div>
                             <div class="show-more-snopt smact"><i class="fal fa-ellipsis-v"></i></div>
                             <div class="show-more-snopt-tooltip">
                                 <a href="#comments" class="custom-scroll-link"> <i class="fas fa-comment-alt"></i> Write a Comment</a>
@@ -80,10 +80,13 @@
                             <div class="post-single-tags">
                                 <span class="tags-title"><i class="fas fa-tag"></i> Tags : </span>
                                 <div class="tags-widget">
-                                    <a href="#">Science</a>
-                                    <a href="#">Technology</a>
-                                    <a href="#">Business</a>
-                                    <a href="#">Lifestyle</a>
+                                    {% if tags.title %}
+                                    {% for tag in tags %}
+                                    <a href="#">{{ tag.title }}</a>
+                                    {% endfor %} 
+                                    {% else %}
+                                    <a href="#">Нет тега</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -281,31 +284,15 @@
                         </div>
                     </div>
                     <!-- box-widget  end -->						
-                    <!-- box-widget -->
-                    <div class="box-widget fl-wrap">
-                        <div class="box-widget-content">
-                            <div class="banner-widget fl-wrap">
-                                <div class="bg-wrap bg-parallax-wrap-gradien">
-                                    <div class="bg  " data-bg="images/bg/7.jpg"></div>
-                                </div>
-                                <div class="banner-widget_content">
-                                    <h5>Visit our awesome merch and souvenir online shop.</h5>
-                                    <a href="#" class="btn float-btn color-bg small-btn">Our shop</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- box-widget  end -->					
+                    	
                     <!-- box-widget -->
                     <div class="box-widget fl-wrap">
                         <div class="widget-title">Categories</div>
                         <div class="box-widget-content">
                             <ul class="cat-wid-list">
-                                <li><a href="#">Science</a><span>3</span></li>
-                                <li><a href="#">Politics</a> <span>6</span></li>
-                                <li><a href="#">Technology</a> <span>12</span></li>
-                                <li><a href="#">Sports</a> <span>4</span></li>
-                                <li><a href="#">Business</a> <span>22</span></li>
+                                {% for category in categories %}
+                                <li><a href="#">{{category.title}}</a><span>{{ category.category_post.all.count }}</span></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

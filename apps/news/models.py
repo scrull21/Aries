@@ -1,4 +1,5 @@
 from tabnanny import verbose
+from aiohttp import request
 from django.db import models
 from apps.categories.models import Category
 from apps.users.models import User
@@ -50,6 +51,7 @@ class NewsLike(models.Model):
         ordering = ('-news_liked', )
 
 class NewsComment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     news_comment = models.ForeignKey(News, on_delete=models.CASCADE, related_name='news_comment')
     comment_title = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
@@ -61,3 +63,15 @@ class NewsComment(models.Model):
         verbose_name = "Комент новостя"
         verbose_name_plural = "Коменты новостей"
         ordering = ('-created', )
+
+class Advert(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.TextField()
+    image = models.ImageField(upload_to = 'add_image/')
+
+    def __str__(self):
+        return self.title 
+
+    class Meta:
+        verbose_name= "Реклама"
+        
