@@ -121,11 +121,11 @@
                             <img src="{% static 'images/avatar/2.jpg' %}" alt="">	
                         </div>
                         <div class="author-content fl-wrap">
-                            <h5>Written By <a href="author-single.html">Mark Rose</a></h5>
+                            <h5>Written By <a href="author-single.html">{{ news.user }}</a></h5>
                             <p>At one extremity the rope was unstranded, and the separate spread yarns were all braided and woven round the socket of the harpoon; the pole was then driven hard up into the socket..</p>
                         </div>
                         <div class="profile-card-footer fl-wrap">
-                            <a href="author-single.html" class="post-author_link">View Profile <i class="fas fa-caret-right"></i></a>
+                            <a href="author-single.html" class="post-author_link">Просмотреть профиль <i class="fas fa-caret-right"></i></a>
                             <div class="profile-card-footer_soc">
                                 <div class="profile-card-footer_title">Follow: </div>
                                 <div class="profile-card-social">
@@ -141,47 +141,32 @@
                     </div>
                     <!--post-author end-->		
                     <div class="more-post-wrap  fl-wrap">
-                        <div class="pr-subtitle prs_big">Related Posts</div>
+                        <div class="pr-subtitle prs_big">Последние новости</div>
                         <div class="list-post-wrap list-post-wrap_column fl-wrap">
                             <div class="row">
+                                {% for news in related_news %}
                                 <div class="col-md-6">
                                     <!--list-post-->	
                                     <div class="list-post fl-wrap">
-                                        <a class="post-category-marker" href="category.html">Science</a>
+                                        <a class="post-category-marker" href="category.html">{{ news.category }}</a>
                                         <div class="list-post-media">
                                             <a href="post-single.html">
                                                 <div class="bg-wrap">
-                                                    <div class="bg" data-bg="images/all/16.jpg"></div>
+                                                    {% for image in news.post_image.all  %}
+                                                    <div class="bg" data-bg="{{ image.image.url }}"></div>
+                                                    {% endfor %}
                                                 </div>
                                             </a>
                                             <span class="post-media_title">&copy; Image Copyrights Title</span>
                                         </div>
                                         <div class="list-post-content">
-                                            <h3><a href="post-single.html">How to start Home renovation.</a></h3>
-                                            <span class="post-date"><i class="far fa-clock"></i>  05 April 2022</span>
+                                            <h3><a href="post-single.html">{{ news.title }}</a></h3>
+                                            <span class="post-date"><i class="far fa-clock"></i>  {{ news.created }}</span>
                                         </div>
                                     </div>
-                                    <!--list-post end-->						  
+                                    <!--list-post end-->
                                 </div>
-                                <div class="col-md-6">
-                                    <!--list-post-->	
-                                    <div class="list-post fl-wrap">
-                                        <a class="post-category-marker" href="category.html">Sports</a>
-                                        <div class="list-post-media">
-                                            <a href="post-single.html">
-                                                <div class="bg-wrap">
-                                                    <div class="bg" data-bg="images/all/24.jpg"></div>
-                                                </div>
-                                            </a>
-                                            <span class="post-media_title">&copy; Image Copyrights Title</span>
-                                        </div>
-                                        <div class="list-post-content">
-                                            <h3><a href="post-single.html">Warriors face season defining clash</a></h3>
-                                            <span class="post-date"><i class="far fa-clock"></i> 11 March 2022</span>
-                                        </div>
-                                    </div>
-                                    <!--list-post end-->						  
-                                </div>
+                                {% endfor %}						  
                             </div>
                         </div>
                     </div>
