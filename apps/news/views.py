@@ -5,13 +5,6 @@ from django.db.models import F
 from apps.categories.models import Category
 
 # Create your views here.
-def navbar_news(request):
-    navbar = News.objects.all().order_by('-created',)[:5]
-    context = {
-        'navbar' : navbar
-    }
-    return render(request, 'include/navbar.html', context)
-
 
 def news_detail(request, id):
     news = News.objects.get(id=id)

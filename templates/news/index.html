@@ -28,8 +28,7 @@
                                         <h4>{{ post.description | truncatewords:50 }}</h4>
                                     </a>
                                     <div class="clearfix"></div>
-                                    <div class="author-link"><a href="{% url 'detail_news' post.id %}"><img
-                                                src="{{ user.profile_image.url }}" alt=""> <span>{{ post.user }}</span></a></div>
+                                    <div class="author-link"><a href="{% url 'detail_news' post.id %}"><img src="{{ user.profile_image.url }}" alt=""> <span>{{ post.user }}</span></a></div>
                                     <span class="post-date"><i class="far fa-clock"></i>{{ post.created }}</span>
                                 </div>
                             </div>

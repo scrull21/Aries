@@ -11,18 +11,18 @@ def index(request):
     set = Setting.objects.get(pk=1)
     top_news = NewsLike.objects.all().order_by('-news_liked',)[:6]
     random_news = News.objects.order_by('?').first()
+    navbar_news = News.objects.all().order_by('-created',)[:5]
+    categories_navbar = Category.objects.all().order_by('-created',)[:5]
     context = {
         'news' : news,
         'settings' : set,
         'top_news' : top_news,
         'news_slide' : news_slide,
         'random_news' : random_news,
+        'navbar_news' : navbar_news,
+        'categories_navbar' : categories_navbar,
     }
     return render(request, 'news/index.html', context)
 
-def navbar(request):
-    category = Category.objects.all().order_by('-id')[:5]
-    context = {
-        'categories' : category
-    }
-    return render(request, 'include/navbar.html', context)
+def about_us(request):
+    return render(request, 'about.html')
